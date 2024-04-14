@@ -1,5 +1,5 @@
 # Define the path to the CSV file
-$csvPath = "F:\GDrive\rainforest\planet\train_classes_new.csv"
+$csvPath = "F:\Downloads\planet\train_classes_new.csv"
 
 # Read the CSV file
 $csvData = Import-Csv -Path $csvPath
@@ -16,7 +16,7 @@ $missingImages += "TEST"
 # Step 1: Create folders for each unique tag
 foreach ($row in $csvData) {
     $tag = $row.tags
-    $folderPath = "F:\planetSort1\$tag"
+    $folderPath = "C:\Users\Duder5000\Desktop\rf\$tag"
 
     # Create folder if it doesn't exist
     if (-not (Test-Path -Path $folderPath)) {
@@ -29,9 +29,9 @@ foreach ($row in $csvData) {
 foreach ($row in $csvData) {
     $imageName = $row.image_name
     $tag = $row.tags
-    $sourceTest = "F:\GDrive\rainforest\planet\test-jpg\$imageName.jpg"
-	$sourceTrain = "F:\GDrive\rainforest\planet\train-jpg\$imageName.jpg"
-    $destinationPath = "F:\planetSort1\$tag\$imageName.jpg"
+    $sourceTest = "F:\Downloads\planet\test-jpg\$imageName.jpg"
+	$sourceTrain = "F:\Downloads\planet\train-jpg\$imageName.jpg"
+    $destinationPath = "C:\Users\Duder5000\Desktop\rf\$tag\$imageName.jpg"
 
     # Check if the jpg file exists and copy it to the corresponding folder
     if (Test-Path -Path $sourceTest) {
@@ -46,6 +46,8 @@ foreach ($row in $csvData) {
 }
 
 # Write the list of missing image names to a text file
-$missingImagesPath = "F:\MissingImages.txt"
+$missingImagesPath = "C:\Users\Duder5000\Desktop\MissingImages.txt"
 $missingImages | Out-File -FilePath $missingImagesPath
 Write-Host "List of missing images written to: $missingImagesPath"
+
+#################################################################################

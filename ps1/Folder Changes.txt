@@ -1,0 +1,6 @@
+Move blow_down to bare_ground
+Change name to deforest
+
+Combine mines
+
+Cut everthing down to 200 images
